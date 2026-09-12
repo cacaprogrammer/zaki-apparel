@@ -1,0 +1,71 @@
+.my-orders-main{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px 30px; }
+
+.my-orders-head h2{ font-family:'Playfair Display', serif; font-size:24px; font-weight:700; color:var(--ink); margin:0 0 4px; }
+.my-orders-head .sub{ font-size:12px; color:var(--muted); margin-bottom:18px; }
+
+.order-tabs{ display:flex; gap:22px; border-bottom:1px solid var(--line); margin-bottom:20px; flex-wrap:wrap; }
+.order-tab{
+  background:none; border:none; padding:0 0 12px; font-size:12.5px; font-weight:700; color:var(--muted);
+  cursor:pointer; font-family:inherit; border-bottom:2px solid transparent; margin-bottom:-1px; transition: color .15s, border-color .15s;
+}
+.order-tab:hover{ color:var(--ink); }
+.order-tab.active{ color:var(--ink); border-color:var(--gold); }
+
+.order-list{ display:flex; flex-direction:column; gap:18px; }
+
+.order-box{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.order-box-header{
+  display:flex; align-items:center; justify-content:space-between; background:var(--cream); padding:12px 18px;
+}
+.order-box-header-left{ display:flex; gap:28px; }
+.order-box-header .order-id{ font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--muted); }
+.order-box-header .order-id .val{ color:var(--ink); font-size:12.5px; letter-spacing:0; display:block; margin-top:2px; }
+.order-box-header .placed-on{ font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--muted); }
+.order-box-header .placed-on .val{ color:var(--ink); font-size:12.5px; letter-spacing:0; display:block; margin-top:2px; font-weight:600; }
+
+.status-badge{
+  display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; letter-spacing:0.3px;
+  text-transform:uppercase; padding:5px 10px; border-radius:20px;
+}
+.status-badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:currentColor; }
+.status-badge.shipped{ background:rgba(201,152,46,0.15); color:var(--gold-deep); }
+.status-badge.processing{ background:rgba(59,143,214,0.14); color:#3B8FD6; }
+.status-badge.completed{ background:rgba(62,154,87,0.14); color:#3E9A57; }
+.status-badge.cancelled{ background:rgba(179,38,30,0.12); color:#B3261E; }
+
+.order-box-body{ padding:16px 18px; }
+.order-thumbs{ display:flex; gap:8px; margin-bottom:14px; }
+.order-thumb{
+  width:44px; height:44px; border-radius:8px; overflow:hidden; background:var(--cream); border:1px solid var(--line);
+  flex-shrink:0; position:relative;
+}
+.order-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.order-thumb.more-count{
+  display:flex; align-items:center; justify-content:center; background:var(--ink); color:#fff; font-size:11px; font-weight:700;
+}
+
+.order-box-footer{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.order-box-footer .summary{ font-size:11.5px; color:var(--muted); }
+.order-box-footer .summary .amount{ font-size:14px; font-weight:800; color:var(--gold-deep); margin-left:6px; }
+
+.order-actions{ display:flex; gap:10px; }
+.order-actions a, .order-actions button{
+  padding:9px 18px; border-radius:8px; font-size:11.5px; font-weight:700; letter-spacing:0.3px; text-transform:uppercase;
+  cursor:pointer; text-decoration:none; font-family:inherit; transition: all .15s; white-space:nowrap;
+}
+.btn-outline{ background:#fff; border:1.5px solid var(--line); color:var(--ink); }
+.btn-outline:hover{ border-color:var(--ink); }
+.btn-outline-danger{ background:#fff; border:1.5px solid var(--line); color:#B3261E; }
+.btn-outline-danger:hover{ border-color:#B3261E; }
+.btn-solid{ background:var(--ink); border:1.5px solid var(--ink); color:#fff; }
+.btn-solid:hover{ background:#000; }
+
+.orders-empty{ text-align:center; padding:60px 20px; color:var(--muted); font-size:13px; }
+
+@media (max-width: 700px){
+  .order-box-header{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .order-box-header-left{ gap:18px; }
+  .order-box-footer{ flex-direction:column; align-items:flex-start; }
+  .order-actions{ width:100%; }
+  .order-actions a, .order-actions button{ flex:1; text-align:center; }
+}

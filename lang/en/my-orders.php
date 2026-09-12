@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'page_title' => 'My Orders',
+    'subtitle' => "Track, manage and review everything you've ordered",
+    'tab_all' => 'All',
+    'tab_processing' => 'Processing',
+    'tab_shipped' => 'Shipped',
+    'tab_completed' => 'Completed',
+    'tab_cancelled' => 'Cancelled',
+    'order' => 'Order',
+    'placed_on' => 'Placed on',
+    'status_shipped' => 'Shipped',
+    'status_processing' => 'Processing',
+    'status_completed' => 'Completed',
+    'status_cancelled' => 'Cancelled',
+    'item' => 'item',
+    'items' => 'items',
+    'total_paid' => 'Total Paid',
+    'refunded' => 'Refunded',
+    'buy_again' => 'Buy Again',
+    'cancel_order' => 'Cancel Order',
+    'view_order' => 'View Order',
+    'no_orders' => 'No orders in this category yet.',
+];

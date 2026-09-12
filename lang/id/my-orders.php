@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'page_title' => 'Pesanan Saya',
+    'subtitle' => 'Lacak, kelola, dan tinjau semua yang pernah Anda pesan',
+    'tab_all' => 'Semua',
+    'tab_processing' => 'Diproses',
+    'tab_shipped' => 'Dikirim',
+    'tab_completed' => 'Selesai',
+    'tab_cancelled' => 'Dibatalkan',
+    'order' => 'Pesanan',
+    'placed_on' => 'Dibuat pada',
+    'status_shipped' => 'Dikirim',
+    'status_processing' => 'Diproses',
+    'status_completed' => 'Selesai',
+    'status_cancelled' => 'Dibatalkan',
+    'item' => 'barang',
+    'items' => 'barang',
+    'total_paid' => 'Total Dibayar',
+    'refunded' => 'Dikembalikan',
+    'buy_again' => 'Beli Lagi',
+    'cancel_order' => 'Batalkan Pesanan',
+    'view_order' => 'Lihat Pesanan',
+    'no_orders' => 'Belum ada pesanan di kategori ini.',
+];
