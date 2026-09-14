@@ -133,13 +133,6 @@ new class extends Component {
     {
         return count(array_filter($this->steps, fn($s) => $s['status'] === 'done'));
     }
-
-    public function requestRefund(): void
-    {
-        // NOTE: belum ada sistem pengajuan refund beneran (form alasan, upload foto, dsb).
-        // Untuk sekarang cuma placeholder — sambungkan ke flow refund yang sebenarnya nanti.
-        session()->flash('refund_requested', true);
-    }
 };
 ?>
 
@@ -295,7 +288,7 @@ new class extends Component {
                 <div class="order-card">
                     <h3>{{ __('order-detail.refund_heading') }}</h3>
                     <p class="refund-desc">{{ __('order-detail.refund_desc') }}</p>
-                    <button type="button" class="refund-btn" wire:click="requestRefund">{{ __('order-detail.request_refund') }}</button>
+                    <a href="{{ route('refund.request', $orderId) }}" class="refund-btn">{{ __('order-detail.request_refund') }}</a>
                 </div>
             @endif
         </div>

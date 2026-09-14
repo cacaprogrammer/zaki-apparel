@@ -1,4 +1,4 @@
-.address-main{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px 30px; }
+.address-main{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:48px 30px; }
 
 .address-main-head h2{ font-family:'Playfair Display', serif; font-size:24px; font-weight:700; color:var(--ink); margin:0 0 4px; }
 .address-main-head .sub{ font-size:12px; color:var(--muted); margin-bottom:20px; }

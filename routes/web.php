@@ -66,6 +66,18 @@ Route::get('/order/{orderId?}', function (?string $orderId = null) {
     return view('order-detail', ['orderId' => $orderId ?? 'ZA-84719']);
 })->name('order.detail');
 
+Route::get('/order/{orderId}/refund', function (string $orderId) {
+    return view('refund-request', ['orderId' => $orderId]);
+})->name('refund.request')->middleware('auth');
+
+Route::get('/order/{orderId}/refund/status', function (string $orderId) {
+    return view('refund-status', ['orderId' => $orderId]);
+})->name('refund.status')->middleware('auth');
+
+Route::get('/order/{orderId}/refund/status', function (string $orderId) {
+    return view('refund-status', ['orderId' => $orderId]);
+})->name('refund.status')->middleware('auth');
+
 Route::get('/my-orders', function () {
     return view('my-orders');
 })->name('my-orders')->middleware('auth');
@@ -77,3 +89,7 @@ Route::get('/address', function () {
 Route::get('/settings', function () {
     return view('settings');
 })->name('settings')->middleware('auth');
+
+Route::get('/chat', function () {
+    return view('chat');
+})->name('chat')->middleware('auth');

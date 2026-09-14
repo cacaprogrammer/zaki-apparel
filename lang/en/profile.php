@@ -17,4 +17,7 @@ return [
     'default_address' => 'Default Address',
     'save_changes' => 'Save Changes',
     'cancel' => 'Cancel',
+    'logout_confirm_title' => 'Log Out of Your Account?',
+    'logout_confirm_desc' => 'Are you sure you want to log out? All items in your shopping cart will remain saved.',
+    'confirm_logout' => 'Yes, Log Out',
 ];

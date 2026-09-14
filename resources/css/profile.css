@@ -1,12 +1,4 @@
-/* ===== BREADCRUMB (samakan persis dengan Category & Wishlist) ===== */
-.breadcrumb{ padding: 20px 0 0; }
-.breadcrumb-inner{ font-size:13px; color:var(--muted); font-weight:500; }
-.breadcrumb-inner a{color:var(--muted);}
-.breadcrumb-inner a:hover{color:var(--gold-deep);}
-.breadcrumb-inner .current{color:var(--ink); font-weight:600;}
-
-/* ===== PROFILE PAGE ===== */
-.profile-wrap{ max-width:1280px; margin:0 auto; padding:60px 32px 80px; }
+.profile-wrap{ max-width:1000px; margin:0 auto; padding:58px 32px 80px; }
 
 .profile-layout{ display:grid; grid-template-columns: 260px 1fr; gap:24px; align-items:start; }
 
@@ -85,3 +77,29 @@
   .profile-layout{ grid-template-columns:1fr; }
   .profile-info-grid{ grid-template-columns:1fr; }
 }
+
+/* ---------- LOGOUT CONFIRM MODAL ---------- */
+.logout-modal-overlay{
+  position:fixed; inset:0; background:rgba(27,27,34,0.5); z-index:1000;
+  display:flex; align-items:center; justify-content:center; padding:20px;
+}
+.logout-modal-box{
+  background:#fff; border-radius:16px; padding:36px 32px 28px; max-width:380px; width:100%; text-align:center;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.35);
+}
+.logout-modal-icon{
+  width:48px; height:48px; border-radius:50%; background:var(--cream); display:flex; align-items:center; justify-content:center;
+  margin:0 auto 16px;
+}
+.logout-modal-icon svg{ width:20px; height:20px; stroke:var(--gold-deep); fill:none; stroke-width:2; }
+.logout-modal-box h3{ font-family:'Playfair Display', serif; font-size:18px; font-weight:700; color:var(--ink); margin:0 0 10px; }
+.logout-modal-box p{ font-size:12px; color:var(--muted); line-height:1.6; margin:0 0 22px; }
+
+.logout-modal-actions{ display:flex; gap:10px; }
+.logout-modal-actions button{
+  flex:1; padding:12px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer; transition: all .15s;
+}
+.logout-cancel-btn{ background:#fff; border:1.5px solid var(--line); color:var(--ink); }
+.logout-cancel-btn:hover{ border-color:var(--ink); }
+.logout-confirm-btn{ background:var(--gold); border:1.5px solid var(--gold); color:var(--ink); }
+.logout-confirm-btn:hover{ background:#DDAE45; }

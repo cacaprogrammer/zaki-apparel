@@ -174,6 +174,7 @@ new class extends Component {
             'tax' => $this->tax,
             'total' => $this->total,
             'placed_at' => now()->toDateTimeString(),
+            'status' => 'processing',
         ]]);
 
         session(['cart' => $cart]);

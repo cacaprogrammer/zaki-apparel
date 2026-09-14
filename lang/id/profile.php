@@ -17,4 +17,7 @@ return [
     'default_address' => 'Alamat Utama',
     'save_changes' => 'Simpan Perubahan',
     'cancel' => 'Batal',
+    'logout_confirm_title' => 'Keluar dari Akun?',
+    'logout_confirm_desc' => 'Apakah Anda yakin ingin keluar dari akun Anda? Semua item di keranjang belanja Anda akan tetap tersimpan.',
+    'confirm_logout' => 'Ya, Keluar',
 ];
