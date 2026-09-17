@@ -7,6 +7,7 @@ return [
     'address' => 'Alamat',
     'settings' => 'Pengaturan',
     'chat' => 'Chat',
+    'notifications' => 'Notifikasi',
     'logout' => 'Keluar',
     'your_account_details' => 'Detail akun Anda',
     'edit_profile' => 'Edit Profil',

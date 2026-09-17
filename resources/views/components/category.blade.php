@@ -2,9 +2,10 @@
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Concerns\TogglesWishlist;
 
 new class extends Component {
-    use WithPagination;
+    use WithPagination, TogglesWishlist;
 
     public ?string $slug = null;
     public string $search = '';
@@ -210,7 +211,12 @@ new class extends Component {
                             @if($item['badge'])
                                 <span class="product-badge">{{ $item['badge'] }}</span>
                             @endif
-                            <button class="product-fav" title="{{ __('category.add_to_wishlist') }}">
+                            <button
+                                type="button"
+                                wire:click="toggleWishlist('{{ $item['slug'] }}')"
+                                class="product-fav {{ $this->isWishlisted($item['slug']) ? 'active' : '' }}"
+                                title="{{ __('category.add_to_wishlist') }}"
+                            >
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M20.8 8.6c0-3.1-2.5-5.4-5.4-5.4-1.7 0-3.3.9-4.3 2.3-1-1.4-2.6-2.3-4.3-2.3-2.9 0-5.4 2.3-5.4 5.4 0 6 9.7 11.4 9.7 11.4s9.7-5.4 9.7-11.4z"/>
                                 </svg>

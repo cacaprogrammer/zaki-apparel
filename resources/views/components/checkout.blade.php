@@ -1,6 +1,7 @@
 <?php
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 new class extends Component {
     public array $checkoutItems = [];
@@ -42,17 +43,32 @@ new class extends Component {
             return;
         }
 
-        $this->addresses = [
-            [
-                'id' => 1,
-                'name' => 'Akleema',
-                'phone' => '+62 812 3456 7890',
-                'full_address' => 'Jl. Kenanga No. 12, RT 04/RW 02, Kelurahan Sukamaju, Kec. Lowokwaru',
-                'city' => 'Malang, Jawa Timur',
-                'postal_code' => '65141',
-            ],
-        ];
-        $this->selectedAddressId = 1;
+        $user = Auth::user();
+
+        // Auto-isi Email & Phone dari akun yang lagi login
+        $this->email = $user->email ?? '';
+        $this->phone = $user->phone_number ?? '';
+
+        // Auto-isi alamat default dari Profile (kolom 'address' di tabel users), kalau ada
+        if ($user && !empty($user->address)) {
+            $this->addresses = [
+                [
+                    'id' => 1,
+                    'name' => $user->name,
+                    'phone' => $user->phone_number ?? '-',
+                    'full_address' => $user->address,
+                    'city' => '',
+                    'postal_code' => '',
+                ],
+            ];
+            $this->selectedAddressId = 1;
+        } else {
+            // Belum ada alamat tersimpan di Profile — biarkan kosong,
+            // user wajib klik "Add New Address" buat isi alamat pengiriman.
+            $this->addresses = [];
+            $this->selectedAddressId = null;
+            $this->showAddressForm = true;
+        }
     }
 
     public function selectAddress(int $id): void
@@ -247,7 +263,7 @@ new class extends Component {
                         <input type="radio" @checked($selectedAddressId === $address['id'])>
                         <div>
                             <div class="name">{{ $address['name'] }}</div>
-                            <div class="addr-text">{{ $address['full_address'] }}, {{ $address['city'] }} {{ $address['postal_code'] }} · {{ $address['phone'] }}</div>
+                            <div class="addr-text">{{ trim($address['full_address'] . (($address['city'] || $address['postal_code']) ? ', ' . trim($address['city'] . ' ' . $address['postal_code']) : '')) }} · {{ $address['phone'] }}</div>
                             <button type="button" class="edit-link" wire:click.stop="editAddress({{ $address['id'] }})">{{ __('checkout.edit_address') }}</button>
                         </div>
                     </div>

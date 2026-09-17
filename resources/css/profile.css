@@ -1,9 +1,9 @@
-.profile-wrap{ max-width:1000px; margin:0 auto; padding:58px 32px 80px; }
+.profile-wrap{ max-width:1000px; margin:0 auto; padding:28px 32px 80px; }
 
 .profile-layout{ display:grid; grid-template-columns: 260px 1fr; gap:24px; align-items:start; }
 
 /* ---------- SIDEBAR ---------- */
-.profile-sidebar{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px; }
+.profile-sidebar{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px; position:sticky; top:96px; }
 
 .profile-sidebar-head{ display:flex; align-items:center; gap:12px; padding-bottom:18px; margin-bottom:16px; border-bottom:1px solid var(--line); }
 .profile-avatar{ width:44px; height:44px; border-radius:50%; overflow:hidden; flex-shrink:0; background:var(--cream); border:1px solid var(--line); }
@@ -20,6 +20,9 @@
   display:flex; align-items:center; gap:10px; padding:13px 16px; border-radius:10px; font-size:12.5px; font-weight:700;
   color:var(--ink); text-decoration:none; background:#fff; border:1.5px solid var(--line); cursor:pointer; text-align:left; width:100%;
   font-family:inherit; transition: border-color .15s, background .15s; box-sizing:border-box;
+}
+.nav-badge-count{
+  margin-left:auto; font-size:10px; font-weight:700; background:var(--gold); color:#1B1B22; padding:2px 8px; border-radius:20px;
 }
 .profile-nav a svg, .profile-nav button svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.8; flex-shrink:0; }
 .profile-nav a:hover:not(.active), .profile-nav button:hover{ border-color:var(--gold-deep); }

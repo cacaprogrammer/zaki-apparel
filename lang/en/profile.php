@@ -7,6 +7,7 @@ return [
     'address' => 'Address',
     'settings' => 'Settings',
     'chat' => 'Chat',
+    'notifications' => 'Notifications',
     'logout' => 'Logout',
     'your_account_details' => 'Your account details',
     'edit_profile' => 'Edit Profile',

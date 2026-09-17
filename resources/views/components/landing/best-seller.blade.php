@@ -1,38 +1,51 @@
 <?php
-$products = [
-    [
-        'name' => __('landing.product_checkered'),
-        'category' => __('landing.cat_striped'),
-        'price' => 66000,
-        'image' => 'checkered-shirt.jpeg',
-        'badge' => true,
-        'slug' => 'checkered-shirt',
-    ],
-    [
-        'name' => __('landing.product_striped'),
-        'category' => __('landing.cat_striped'),
-        'price' => 64000,
-        'image' => 'striped-shirt.jpeg',
-        'badge' => false,
-        'slug' => 'striped-shirt',
-    ],
-    [
-        'name' => __('landing.product_flannel'),
-        'category' => __('landing.cat_flannel'),
-        'price' => 72000,
-        'image' => 'flannel-shirt.webp',
-        'badge' => true,
-        'slug' => 'flannel-shirt',
-    ],
-    [
-        'name' => __('landing.product_casual'),
-        'category' => __('landing.cat_classic'),
-        'price' => 75000,
-        'image' => 'casual-shirt.webp',
-        'badge' => false,
-        'slug' => 'casual-shirt',
-    ],
-];
+
+use Livewire\Component;
+use App\Concerns\TogglesWishlist;
+
+new class extends Component {
+    use TogglesWishlist;
+
+    public array $products = [];
+
+    public function mount(): void
+    {
+        $this->products = [
+            [
+                'name' => __('landing.product_checkered'),
+                'category' => __('landing.cat_striped'),
+                'price' => 66000,
+                'image' => 'checkered-shirt.jpeg',
+                'badge' => true,
+                'slug' => 'checkered-shirt',
+            ],
+            [
+                'name' => __('landing.product_striped'),
+                'category' => __('landing.cat_striped'),
+                'price' => 64000,
+                'image' => 'striped-shirt.jpeg',
+                'badge' => false,
+                'slug' => 'striped-shirt',
+            ],
+            [
+                'name' => __('landing.product_flannel'),
+                'category' => __('landing.cat_flannel'),
+                'price' => 72000,
+                'image' => 'flannel-shirt.webp',
+                'badge' => true,
+                'slug' => 'flannel-shirt',
+            ],
+            [
+                'name' => __('landing.product_casual'),
+                'category' => __('landing.cat_classic'),
+                'price' => 75000,
+                'image' => 'casual-shirt.webp',
+                'badge' => false,
+                'slug' => 'casual-shirt',
+            ],
+        ];
+    }
+};
 ?>
 
 <section class="bestseller-section" id="best-seller">
@@ -42,15 +55,19 @@ $products = [
 
         <div class="product-grid">
             @foreach ($products as $product)
-                <div class="product-card">
+                <div class="product-card" wire:key="best-{{ $product['slug'] }}">
                     <div class="img-wrap">
                         <img src="{{ asset('images/' . $product['image']) }}" alt="{{ $product['name'] }}">
                         @if ($product['badge'])
                             <span class="product-badge">{{ __('landing.badge_new') }}</span>
                         @endif
-                        <a href="{{ route('wishlist') }}" class="product-fav">
+                        <button
+                            type="button"
+                            wire:click="toggleWishlist('{{ $product['slug'] }}')"
+                            class="product-fav {{ $this->isWishlisted($product['slug']) ? 'active' : '' }}"
+                        >
                             <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-                        </a>
+                        </button>
                     </div>
                     <div class="product-info">
                         <div class="cat-label">{{ $product['category'] }}</div>
@@ -65,6 +82,6 @@ $products = [
             @endforeach
         </div>
 
-        <a href="#" class="view-all-btn">{{ __('landing.view_all_product') }}</a>
+        <a href="{{ route('category') }}" class="view-all-btn">{{ __('landing.view_all_product') }}</a>
     </div>
 </section>

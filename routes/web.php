@@ -93,3 +93,30 @@ Route::get('/settings', function () {
 Route::get('/chat', function () {
     return view('chat');
 })->name('chat')->middleware('auth');
+
+Route::get('/notifications', function () {
+    return view('notifications');
+})->name('notifications')->middleware('auth');
+
+// ===== ADMIN AUTH =====
+Route::get('/admin/login', function () {
+    return view('admin-login');
+})->name('admin.login')->middleware('guest');
+
+Route::get('/admin/register', function () {
+    return view('admin-register');
+})->name('admin.register')->middleware('guest');
+
+Route::post('/admin/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect()->route('admin.login');
+})->name('admin.logout')->middleware('auth');
+
+Route::get('/admin', function () {
+    if (!auth()->user()->isAdmin()) {
+        abort(403);
+    }
+    return 'Admin Dashboard — akan dibuat di batch berikutnya.';
+})->name('admin.dashboard')->middleware('auth');
